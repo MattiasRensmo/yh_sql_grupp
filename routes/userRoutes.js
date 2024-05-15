@@ -1,16 +1,26 @@
-const express = require('express')
-const user = express.Router()
-const database = require('../database/db')
-const db = database.initDatabase()
+const express = require("express");
+const user = express.Router();
+const { createUser } = require("../functions/userFunctions");
 
 //BaseURL '/api/user'
+user.post("/signup", async (req, res) => {
+  const { username, password } = req.body;
 
-user.post('/signup', (req, res) => {
-  res.json({ msg: 'hej' })
-})
+  if (username == "" || password == "") {
+    res.status(400).send({ message: "username or password cannot be empty" });
+    return;
+  }
 
-user.post('/login', (req, res) => {
-  res.json({ msg: 'logged in ' })
-})
+  try {
+    await createUser(username, password);
+    res.status(200).send({ message: "user successfully created" });
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
 
-module.exports = user
+user.post("/login", (req, res) => {
+  res.json({ msg: "logged in " });
+});
+
+module.exports = user;
