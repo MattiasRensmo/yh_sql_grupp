@@ -1,3 +1,7 @@
+## Arbetsgång
+
+Börja med "skapa"-grejerna så går det enklare när man ska göra allt annat sen. Tar man en grej så är man ansvarig från endpoint hela vägen till databasen.
+
 ## Tabeller med exempeldata
 
 users
@@ -42,7 +46,8 @@ channelMessages
 
 #### skapa användare \*
 
-POST /api/user/signup
+- JENS, REBBAN
+  POST /api/user/signup
 
 #### logga in användare
 
@@ -60,7 +65,7 @@ DELETE /api/user/:userId
 
 GET /api/user/
 
-#### hämta en användare _(inkl vilka kanaler hen prenumererar på och vilka hen äger)_
+#### hämta en användare _(inkl vilka kanaler hen prenumererar på och vilka hen äger)_ \*
 
 GET /api/user/:userId
 
