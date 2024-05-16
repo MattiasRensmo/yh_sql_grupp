@@ -16,6 +16,21 @@ const checkUserID = (userId) => {
   });
 };
 
+const checkChannelID = (channelId) => {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT EXISTS(SELECT channelId FROM channels WHERE channelId = ?) AS channelExists`
+    db.get(sql, [channelId], function (error, row) {
+        if (error) {
+          console.error(error)
+          return reject(error)
+        }
+        const foundChannel = row.channelExists
+        resolve(foundChannel)
+      }
+    )
+  })
+}
+
 const createChannel = async (channelName, userId) => {
   return new Promise((resolve, reject) => {
     db.run(
@@ -33,4 +48,4 @@ const createChannel = async (channelName, userId) => {
   });
 };
 
-module.exports = { createChannel, checkUserID };
+module.exports = { createChannel, checkUserID, checkChannelID };

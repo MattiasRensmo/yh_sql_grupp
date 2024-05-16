@@ -2,6 +2,7 @@ const express = require('express')
 const user = require('./routes/userRoutes')
 const channel = require('./routes/channelRoutes')
 const message = require('./routes/messageRoutes')
+const subscribers = require("./routes/subscribersRoutes")
 const database = require('./database/db')
 const db = database.initDatabase()
 const app = express()
@@ -40,6 +41,7 @@ app.post('/api/test', (req, res) => {
 app.use('/api/user', user)
 app.use('/api/channel', channel)
 app.use('/api/message', message)
+app.use('/api/subscribers', subscribers)
 
 //Alltid längst ned
 app.listen(PORT, URL, () => {
