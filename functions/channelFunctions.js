@@ -42,11 +42,6 @@ const createChannel = async (channelName, userId) => {
             reject(error);
           }
           const channelId = this.lastID;
-          checkChannelID(channelId);
-          if (channelId <= 0) {
-            return res.status(404).send({ message: "No channel found" });
-          }
-
           db.run(
             `INSERT INTO subscribers (channelId, userId) VALUES (?,?)`,
             [channelId, userId],
