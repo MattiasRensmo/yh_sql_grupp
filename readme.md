@@ -29,7 +29,7 @@ subscribers
 | ----------- | --------- |
 | 1 | 2 |
 | 1 | 3 |
-| 2 | null |
+| 2 | 1 |
 | 3 | 2 |
 
 channelMessages
@@ -49,22 +49,6 @@ channelMessages
 - JENS, REBBAN
   POST /api/user/signup
 
-#### logga in användare
-
-POST /api/user/login
-
-#### ändra användare
-
-PUT /api/user/:userId
-
-#### radera användare
-
-DELETE /api/user/:userId
-
-#### hämta alla användare
-
-GET /api/user/
-
 #### hämta en användare _(inkl vilka kanaler hen prenumererar på och vilka hen äger)_ \*
 
 GET /api/user/:userId
@@ -73,27 +57,11 @@ GET /api/user/:userId
 
 POST /api/user/:userId/sub/:channelId
 
-#### sluta prenumerera på kanal
-
-DELETE /api/user/:userId/sub/:channelId
-
 ### Channel
 
 #### skapa kanal \*
 
 POST /api/channel/
-
-#### ändra kanal
-
-PUT /api/channel/
-
-#### radera kanal
-
-DELETE /api/channel/
-
-#### hämta alla kanaler
-
-GET /api/channel/
 
 #### hämta en kanal (inkl. meddelanden, owner, subscribers) \*
 
