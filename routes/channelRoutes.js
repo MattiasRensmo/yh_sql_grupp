@@ -1,17 +1,30 @@
 const express = require("express");
-const { createChannel } = require("../functions/channelFunctions");
+const { createChannel, checkUserID } = require("../functions/channelFunctions");
 const channel = express.Router();
 
 //BaseURL '/api/channel'
 channel.post("/", async (req, res) => {
   const { channelName, userId } = req.body;
+
+  if (channelName == "") {
+    res.status(400).send({ message: "channelname can't be left empty" });
+    return;
+  }
+
   try {
+    const foundUser = await checkUserID(userId);
+    console.log("foundUser", foundUser);
+    if (foundUser <= 0) {
+      return res.status(400).send({ message: "user does not exist" });
+    }
+
     await createChannel(channelName, userId);
-    res
+
+    return res
       .status(200)
       .send({ message: "channel has been created", owner: userId });
   } catch (error) {
-    res.sendStatus(500);
+    return res.sendStatus(500);
   }
 });
 
