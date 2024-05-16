@@ -1,6 +1,6 @@
-const e = require('express')
-const database = require('../database/db')
-const db = database.initDatabase()
+const e = require("express");
+const database = require("../database/db");
+const db = database.initDatabase();
 
 const getUserById = (uid) => {
   //hämta en användare
@@ -30,13 +30,13 @@ const getUserById = (uid) => {
       [uid],
       (error, dbRes) => {
         if (error) {
-          reject(error)
+          reject(error);
         } else {
-          resolve(dbRes)
+          resolve(dbRes);
         }
       }
-    )
-  })
-}
+    );
+  });
+};
 
-module.exports = getUserById
+module.exports = getUserById;
