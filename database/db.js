@@ -5,13 +5,14 @@ const initDatabase = () => {
     if (error) return console.log('Error', error)
     else return console.log('connected to db')
   })
-
+                /*sql*/
   const users = `CREATE TABLE IF NOT EXISTS users 
                   (
                   userId INTEGER PRIMARY KEY, 
                   username VARCHAR(64) NOT NULL, 
                   password TEXT NOT NULL
                    )`
+                   /*sql*/
   const channels = `CREATE TABLE IF NOT EXISTS channels 
                    (
                     channelId INTEGER PRIMARY KEY, 
@@ -19,6 +20,7 @@ const initDatabase = () => {
                     channelName VARCHAR(64) NOT NULL,
                     FOREIGN KEY (owner) REFERENCES users(userId)
                     )`
+                    /*sql*/
   const messages = `CREATE TABLE IF NOT EXISTS messages 
                     (
                       messageId INTEGER PRIMARY KEY, 
@@ -27,6 +29,7 @@ const initDatabase = () => {
                       date DATETIME NOT NULL DEFAULT(strftime('%Y-%m-%d %H:%M:%S', datetime('now'))),
                      FOREIGN KEY (userId) REFERENCES users(userId)
                      )`
+                     /*sql*/
   const subscribers = `CREATE TABLE IF NOT EXISTS subscribers 
                      (
                       channelId INTEGER, 
@@ -34,6 +37,7 @@ const initDatabase = () => {
                       FOREIGN KEY (channelId) REFERENCES channels(channelId)
                       FOREIGN KEY (userId) REFERENCES users(userId)
                       )`
+                      /*sql*/
   const channelMessages = `CREATE TABLE IF NOT EXISTS channelMessages 
                       (
                        channelId INTEGER, 
