@@ -7,9 +7,13 @@ const getUserById = require('../functions/getUserById')
 user.post('/signup', async (req, res) => {
   const { username, password } = req.body
 
-  if (username == '' || password == '') {
-    res.status(400).send({ message: 'username or password cannot be empty' })
-    return
+
+  if (username == "" || password == "") {
+    res.status(400).send({
+      message: "username or password cannot be empty",
+    });
+    return;
+
   }
 
   try {
