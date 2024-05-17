@@ -44,6 +44,11 @@ app.use("/api/user", user);
 app.use("/api/channel", channel);
 app.use("/api/message", message);
 
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get("*", (req, res) => {
+  res.sendStatus(404);
+});
+
 //Alltid längst ned
 app.listen(PORT, URL, () => {
   console.log(`Running server on ${URL}:${PORT}`);
