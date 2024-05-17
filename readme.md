@@ -77,6 +77,7 @@ BODY:
 {
 text: string,
 userId: number,
+channelid: [1,2]
 }
 
 #### hämta ett meddelande (inkl författare o kanaler den ligger på)
