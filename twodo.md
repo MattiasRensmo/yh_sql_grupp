@@ -2,4 +2,4 @@
 - Göra så meddelanden kan tillhöra flera kanaler (Mo)
 - Hämta en kanal, både med och utan sortering (Fredags)
 - Lägga in en owner även som subscriber när man skapar en kanal (RebJen)
-- Validera så personen tillhör kanalen hen ska posta i (Mattias)
+- Validera så personen tillhör kanalen hen ska posta i (Mattias) ✅
