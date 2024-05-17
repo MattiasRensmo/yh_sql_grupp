@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "7777cee8-a678-4a8b-9d6c-3ddd7b6d9f5d",
+		"name": "Vårt fina sql-arbete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33318573"
+	},
+	"item": [
+		{
+			"name": "api/user/signup (Skapa användare)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"NamnPerson\",\r\n    \"password\": \"losen123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/user/:userId (Hämta användare)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/user/:userId/sub/:channelId (Prenumerera på kanal)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/user/3/sub/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"3",
+						"sub",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/channel/ (Skapa kanal)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelName\": \"Ny ny ny och fin och Bra kanal\",\r\n    \"owner\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/channel/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"channel",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/channel/:id/ (Hämta kanal)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/channel/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"channel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/channel/:id/sortByDate/[asc/desc] (Hämta kanal med datumsorterade inlägg)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/channel/1/sortByDate/desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"channel",
+						"1",
+						"sortByDate",
+						"desc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/message/ (Skapa meddelande)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Jättebra nhytt inlägg\",\r\n    \"userId\": 3,\r\n    \"channelId\": [\r\n        1,\r\n        8,3\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/message/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"message",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

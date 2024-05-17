@@ -1,3 +1,7 @@
+# Sql grupp 3
+
+Mo, Mattias, Rebecka, Kristofer, Jens
+
 ## Arbetsgång
 
 Börja med "skapa"-grejerna så går det enklare när man ska göra allt annat sen. Tar man en grej så är man ansvarig från endpoint hela vägen till databasen.
