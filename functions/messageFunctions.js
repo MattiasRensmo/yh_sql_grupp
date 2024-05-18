@@ -57,7 +57,12 @@ const postMessage = async (text, userId, channelid) => {
 
 }
 
-
+//main insert function
+//returns a "lastID"
+//add table "messages"
+//add targeted columns "text, userId"
+//add "values" "Jag gillar hestar, 1"
+// INSERT INTO "messages" (text, userId) VALUES ("jag gillar hestar", 1)
 const insertInto = async (table, columns, values) => {
   let last_id;
   /*sql*/
