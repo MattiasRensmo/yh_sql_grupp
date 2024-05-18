@@ -7,7 +7,7 @@ const checkUserID = (userId) => {
     db.get(sql, [userId], (err, row) => {
       if (err) {
         console.error(err);
-        reject(error);
+        reject(err);
       } else {
         const foundUser = row.userExists;
         resolve(foundUser);
