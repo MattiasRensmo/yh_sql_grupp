@@ -35,17 +35,18 @@ message.post("/", async (req, res) => {
   }
 })
 
-.post("/potest", async (req, res) => {
-  const {text, userId, channelId} = req.body;
-try {
-    await postTest(text, userId, channelId);
+//fungerar delete later
+// .post("/potest", async (req, res) => {
+//   const {text, userId, channelId} = req.body;
+// try {
+//     await postTest(text, userId, channelId);
     
-    res.status(200).json({ msg: "ok i think?.."})
-} catch (error) {
-  console.log("big error")
-  return res.status(404).json({ msg: "not working" })
-}
-})
+//     res.status(200).json({ msg: "ok i think?.."})
+// } catch (error) {
+//   console.log("big error")
+//   return res.status(404).json({ msg: "not working" })
+// }
+// })
 
 
 
