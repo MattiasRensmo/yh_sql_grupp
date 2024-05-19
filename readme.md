@@ -1,6 +1,6 @@
 # Sql grupp 3
 
-Mo, Mattias, Rebecka, Kristofer, Jens
+Theeraphan, Mattias, Rebecka, Kristofer, Jens
 
 ## Arbetsgång
 
