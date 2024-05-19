@@ -45,7 +45,7 @@ const insertInto = async (table, columns, values) => {
     last_id = await new Promise(async (resolve, reject) => {
       db.run(sql, values, async function (error) {
         if (error) {
-          console.log(error);
+          console.error(error);
           reject(error);
         } else {
           const lastId = await this.lastID;

@@ -8,10 +8,9 @@ const validateSubscriber = (uid, cid) => {
       [cid, uid],
       (error, row) => {
         if (error) {
-          console.log(error);
+          console.error(error);
           reject(error);
         } else {
-          console.log(Boolean(row.length));
           resolve(Boolean(row.length));
         }
       }

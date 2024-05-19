@@ -2,9 +2,8 @@ const express = require("express");
 const user = require("./routes/userRoutes");
 const channel = require("./routes/channelRoutes");
 const message = require("./routes/messageRoutes");
-const database = require("./database/db");
-const db = database.initDatabase();
 const app = express();
+
 const PORT = 5000;
 const URL = "localhost";
 

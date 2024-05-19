@@ -2,7 +2,7 @@ const sqlite = require("sqlite3").verbose();
 
 const initDatabase = () => {
   const db = new sqlite.Database("./database/db.sqlite", (error) => {
-    if (error) return console.log("Error", error);
+    if (error) return console.error("Error", error);
   });
   /*sql*/
   const users = `CREATE TABLE IF NOT EXISTS users 
