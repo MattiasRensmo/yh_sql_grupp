@@ -1,4 +1,5 @@
-const database = require("../database/db")
+const database = require("../database/db");
+const { insertInto } = require("./messageFunctions");
 const db = database.initDatabase()
 
 const checkSusbscription = (userId, channelId) => {
@@ -17,20 +18,29 @@ const checkSusbscription = (userId, channelId) => {
     })
 }
 
-const newSubscriber = (userId, channelId) => {
-    return new Promise((resolve, reject) => {
-        db.run(
-            `INSERT INTO subscribers (channelId, userId) VALUES (?, ?)`,
-            [channelId, userId], function(error) {
-                if (error) {
-                    console.error(error)
-                    reject(error)
-                } else {
-                    resolve(userId, channelId)
-                }
-            }
-        )
-    })
-}
+const newSubscriber = async (userId, channelId) => {
+  return new Promise(async (resolve, reject) => {
+    // db.run(
+    //     `INSERT INTO subscribers (channelId, userId) VALUES (?, ?)`,
+    //     [channelId, userId], function(error) {
+    //         if (error) {
+    //             console.error(error)
+    //             reject(error)
+    //         } else {
+    //             resolve(userId, channelId)
+    //         }
+    //     }
+    // )
+    try {
+      const user_id = userId;
+      const channel_id = channelId;
+      await insertInto("subscribers",["userId", "channelId"],[user_id, channel_id]);
+      resolve()
+    } catch (error) {
+        console.error(error);
+        reject(error)
+    }
+  });
+};
 
 module.exports = {newSubscriber, checkSusbscription}

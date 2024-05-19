@@ -3,8 +3,10 @@ const {
   createChannel,
   checkUserID,
   checkChannelID,
+  createTest,
 } = require("../functions/channelFunctions");
 const getChannelById = require("../functions/getChannelById");
+
 const channel = express.Router();
 
 function formatData(data) {
@@ -75,5 +77,16 @@ channel.get("/:channelId", async (req, res) => {
   const responseObject = formatData(channel);
   res.json(responseObject);
 });
+
+//test working delete later
+// channel.post("/testcreate", async(req, res) => {
+//   const {channelName, owner} = req.body;
+// try {
+//     await createTest(channelName, owner);
+//     res.status(200).json({msg: "Okej kanal!"})
+// } catch (error) {
+//   return res.status(404).json({msg: "inte okej kanal!"})
+// }
+// })
 
 module.exports = channel;
