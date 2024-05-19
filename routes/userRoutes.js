@@ -3,7 +3,7 @@ const user = express.Router();
 const { createUser } = require("../functions/userFunctions");
 const getUserById = require("../functions/getUserById");
 const {
-  checkSusbscription,
+  checkSubscription,
   newSubscriber,
 } = require("../functions/subscribersFunctions");
 const {
@@ -67,7 +67,6 @@ user.get("/:id", async (req, res) => {
         });
       }
     });
-    console.log(user);
     res.json(userObject);
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" });
@@ -93,18 +92,16 @@ user.post("/:userId/sub/:channelId", async (req, res) => {
       return res.status(400).json({ message: "Channel does not exist" });
     }
 
-    const subscriptionExists = await checkSusbscription(userId, channelId);
+    const subscriptionExists = await checkSubscription(userId, channelId);
     if (subscriptionExists) {
       return res.status(500).json({ message: "Subscription already exists" });
     }
 
     const subscription = await newSubscriber(userId, channelId);
-    return res
-      .status(201)
-      .json({
-        message: `Successfully subscribed user with id ${userId} to channel with id ${channelId}`,
-        subscription,
-      });
+    return res.status(201).json({
+      message: `Successfully subscribed user with id ${userId} to channel with id ${channelId}`,
+      subscription,
+    });
   } catch (error) {
     return res.status(500).json({ message: "Failed to subscribe" });
   }

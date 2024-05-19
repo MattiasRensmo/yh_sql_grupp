@@ -2,7 +2,6 @@ const database = require("../database/db");
 const db = database.initDatabase();
 
 const getChannelById = (cid, order = "ASC") => {
-  console.log(cid, order);
   let safeOrder = "ASC";
   if (order === "DESC") safeOrder = "DESC";
 
